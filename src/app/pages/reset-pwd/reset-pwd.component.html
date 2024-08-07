@@ -1,0 +1,106 @@
+
+<div class="container reset_pwd">
+    <div class="justify-content-center d-flex mb-5">
+      <img src="assets/images/glink-network-logo.png" class="img-fluid rounded-circle" height="100" width="100" alt="logo" style="height: 100px; width: 100px"/>
+    </div>
+  
+      <div class="row mb-5">
+        <div class="col-6 justify-content-center mb-5">
+          <div>
+              <h2 class="my-4 text-center fw-bolder text-secondary">Reset password</h2>
+          </div>
+          <form action="">
+            <div class=" forms__inputBox mb-3">
+                <label for="password">Password</label>
+                <input 
+                  type="password" formControlName="password" name="password" id="password" aria-describedby="passwordError" required/>
+                <!-- <i
+                        [type]="passwordHide ? 'password' : 'text'"
+
+
+                  [class]="passwordHide ? 'bi bi-eye-slash' : 'bi bi-eye'"
+                  (click)="passwordHide = !passwordHide"
+                ></i> -->
+    
+                <div class="signupForms--error">
+                  <!-- <ng-container
+                    *ngIf="
+                      signupForm.get('password')?.hasError('required') &&
+                      signupForm.get('password')?.touched
+                    "
+                  >
+                    <div id="passwordError" aria-live="assertive">
+                      <i class="bi bi-x"></i>
+                      <span> Password Required </span>
+                    </div>
+                  </ng-container>
+    
+                  <ng-container
+                    *ngIf="signupForm.get('password')?.hasError('minlength')"
+                  >
+                    <div id="passwordError" aria-live="assertive">
+                      <i class="bi bi-exclamation-octagon"></i>
+                      <span>Password must be at least 6 characters</span>
+                    </div>
+                  </ng-container> -->
+                </div>
+              </div>
+    
+              <div class=" forms__inputBox mb-3">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" name="confirmPassword" id="confirmPassword" aria-describedby="confirmPasswordError" required/>
+                <!-- <i
+                    [type]="confirmPasswordHide ? 'password' : 'text'"
+                    ..........
+
+                  [class]="confirmPasswordHide ? 'bi bi-eye-slash' : 'bi bi-eye'"
+                  (click)="confirmPasswordHide = !confirmPasswordHide"
+                ></i> -->
+                <div class="signupForms--error">
+                  <!-- <ng-container
+                    *ngIf="
+                      signupForm.get('confirmPassword')?.hasError('required') &&
+                      signupForm.get('confirmPassword')?.touched
+                    "
+                  >
+                    <span id="passwordError" aria-live="assertive">
+                      <i class="bi bi-x"></i>
+                      Password Required
+                    </span>
+                  </ng-container> -->
+<!--     
+                  <ng-container
+                    *ngIf="
+                      !comparePassword && signupForm.get('confirmPassword')?.touched
+                    "
+                  >
+                    <div id="passwordError" aria-live="assertive">
+                      <i class="bi bi-x"> </i>
+                      <span>Passwords don't match</span>
+                    </div>
+                  </ng-container> -->
+<!--     
+                  <ng-container
+                    *ngIf="signupForm.get('confirmPassword')?.hasError('minlength')">
+                    <div id="passwordError" aria-live="assertive">
+                      <i class="bi bi-exclamation-octagon"></i>
+                      <span>Password must be at least 6 characters</span>
+                    </div>
+                  </ng-container> -->
+                </div>
+              </div>
+
+    
+
+        
+              <div class="sendBtn d-grid mx-auto mt-5">
+                <button class="btn btn-warning" routerLink="/signin">Send</button>
+              </div>
+          </form>
+        </div>
+  
+        <div class="col-6 justify-content-center mb-5">
+          <div class="reset_pwd_bg"></div>
+        </div>
+      </div>
+    </div>

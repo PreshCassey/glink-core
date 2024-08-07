@@ -1,0 +1,7 @@
+{
+  "name": "glink-network-app",
+  "type": "angular",
+  "integrations": {
+    "capacitor": {}
+  }
+}

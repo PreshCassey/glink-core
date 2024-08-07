@@ -1,0 +1,188 @@
+// Import variables into navbar.component.scss:
+@import "../../../scss/variables";
+
+.navbar-wrapper {
+  // background-color: $primary-color; /* Set the navbar background to the primary color */
+  background-color: white !important;
+
+  @media screen and (min-width: 991px) {
+    border-bottom: 1px solid #545454;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow for a raised effect */
+  }
+  .navbar {
+    padding: 1.6rem !important;
+    .logo-toggler-row {
+      width: -webkit-fill-available;
+
+      .toggler-filter-search-row {
+        .toggle-btn {
+          button {
+            border: none;
+            padding: 0;
+
+            &:focus,
+            &:focus-visible {
+              box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset !important;
+            }
+          }
+        }
+
+        .filter-btn {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+        i {
+          font-size: 2rem;
+          color: $primary-color;
+        }
+        button {
+          border: none;
+          background-color: transparent;
+          &:focus,
+          &:focus-visible {
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+              rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+              rgba(255, 255, 255, 0.08) 0px 1px 0px inset !important;
+            border-radius: 5px;
+          }
+        }
+
+        .icon {
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: $primary-color; 
+
+      img {
+        height: 50px;
+        width: 50px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        border-radius: 50%;
+
+        @media screen and (min-width: 991px) {
+          height: 60px;
+          width: 60px;
+        }
+      }
+    }
+
+    .navbar-collapse {
+      .nav-link {
+        .span-container {
+          color: $text-color; /* Set the navigation link text color to blackish */
+          font-size: 1.19rem;
+          &.active {
+            border-bottom: 2px solid $primary-color; /* Add a white bottom border to the active link */
+          }
+          i {
+            color: $secondary-color;
+            margin-right: 5px;
+          }
+        }
+
+        // Dark Mode switch button styles
+        i.bi-brightness-high-fill {
+          color: #ffd700; /* Set the color for the moon icon when in dark mode */
+        }
+        i.bi-moon-fill {
+          color: #ccc;
+        }
+
+        .bi-box-arrow-right {
+          color: #888;
+        }
+      }
+      @media screen and (min-width: 992px) {
+        display: none !important;
+      }
+    }
+
+    .laptop-desktop-nav-container {
+      @media screen and (max-width: 991px) {
+        display: none !important;
+      }
+
+      .laptop-desktop-navbar {
+        display: flex;
+        width: 100%;
+        flex: 1;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          border: none;
+          background: transparent;
+          i {
+            font-size: 1.7rem;
+            color: #c4c4c4;
+          }
+        }
+
+        .home-icon {
+          &.active {
+            i {
+              color: $primary-color;
+            }
+          }
+        }
+
+        .nav-elements {
+          display: flex;
+          align-items: center;
+          padding-top: 12px;
+
+          button {
+            &.active {
+              i {
+                color: $primary-color;
+              }
+            }
+          }
+        }
+
+        // User Profile
+        .user-profile {
+          .user-profile-img {
+            img {
+              border: none;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.search-bar-overlay {
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow for a raised effect */
+
+  .cancel-button {
+    display: block;
+    margin-bottom: 10px;
+    background-color: crimson;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+}

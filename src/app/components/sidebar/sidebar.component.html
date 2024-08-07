@@ -1,0 +1,76 @@
+<div class="sidebar">
+  <div class="row">
+    <div class="col-12 p-0">
+      <div class="d-flex flex-column">
+        <div>
+          <div class="card">
+            <!-- This component would only display in laptop and desktop device screens) -->
+            <user-moments-lg
+
+            ></user-moments-lg>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="card event-feature">
+            <event-lg></event-lg>
+            <div class="see-all-btn">
+              <button class="btn px-4 py-2">
+                <a [routerLink]="'/events'">See All</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 p-0 d-none">
+      <div class="card right-card">
+        <div class="grid-container">
+          <div class="group-container">
+            <div class="heading">Groups</div>
+            <div class="section">
+              <div>
+                <groups-featured></groups-featured>
+              </div>
+            </div>
+            <div class="group-btn">
+              <button class="btn see-all-btn">
+                <a [routerLink]="'/groups'">See All</a>
+              </button>
+            </div>
+          </div>
+
+          <div class="friends-container">
+            <div class="heading">Friends</div>
+            <div class="section">
+              <div>
+                <friends-featured></friends-featured>
+              </div>
+            </div>
+
+            <div class="friends-btn">
+              <button class="btn see-all-btn">
+                <a [routerLink]="'/friends'">See All</a>
+              </button>
+            </div>
+          </div>
+
+          <div class="hymn-container">
+            <div class="heading">Hymn Library</div>
+            <div class="section">
+              <div>
+                <hymn-library-featured></hymn-library-featured>
+              </div>
+            </div>
+
+            <div class="hymn-btn">
+              <button class="btn see-all-btn">
+                <a [routerLink]="'/hymn-library'">See All</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

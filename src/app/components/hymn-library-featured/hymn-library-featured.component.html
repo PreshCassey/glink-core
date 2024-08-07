@@ -1,0 +1,11 @@
+<div class="hymn-list">
+    <div class="hymn-item" *ngFor="let hymn of featuredHymns">
+      <div class="hymn-image">
+        <img [src]="hymn.hymnImage" alt="{{ hymn.hymnName }}">
+      </div>
+      <div class="hymn-details">
+        <h4 class="hymn-number">{{hymn.hymnNumber}}</h4>
+        <p class="hymn-name">{{ hymn.hymnName }}</p>
+      </div>
+    </div>
+  </div>

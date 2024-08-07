@@ -1,0 +1,80 @@
+@import "./variables";
+
+/* Import bootstrap.min.css from node_modules */
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+/* Global Styles */
+body {
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #f5f5f5 !important;
+
+  /* Custom Styles */
+  .root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: auto;
+    .content {
+      flex: 1;
+
+      @media screen and (min-width: 992px) {
+       display: grid;
+       grid-template-columns: 30% 70%;
+       grid-template-rows: 1fr;
+      }
+
+      .vertical-navbar-container {
+        padding: 20px;
+        background-color: white;
+        border-right: 1px solid #545454;
+
+        @media screen and (max-width: 991px) {
+          display: none !important;
+        }
+      }
+    }
+
+    .footer {
+      background-color: $primary-color; /* Set the footer background to the primary color */
+      color: #fff; /* Set the footer text color to white */
+    }
+
+    .home {
+      padding: 20px;
+      text-align: center;
+      h1 {
+        font-size: 36px;
+        color: $primary-color; /* Set the heading color to match the primary color */
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 18px;
+        color: #555;
+      }
+
+      .laptop-desktop-home-container-1,
+      .laptop-desktop-home-container-2 {
+        @media screen and (max-width: 991px) {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+/* Styles for Dark Mode */
+body {
+  .dark-mode {
+    background-color: #333 !important;
+    color: #fff;
+
+    /* Add any additional styles for dark mode here */
+    .footer {
+      background-color: #222; /* Set the footer background to a darker color */
+      color: #ccc; /* Set the footer text color to a lighter color */
+    }
+
+    /* Add styles for dark mode in other components/classes as needed */
+  }
+}

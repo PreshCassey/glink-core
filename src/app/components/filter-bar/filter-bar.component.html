@@ -1,0 +1,12 @@
+<div class="filter-options">
+  <div class="filter-option" *ngFor="let category of filterCategory">
+    <label>{{ category }}</label>
+    <input
+      type="radio"
+      name="filterOption"
+      [checked]="selectedFilterCategory === category"
+      (change)="applyFilter(category)"
+    />
+    
+  </div>
+</div>

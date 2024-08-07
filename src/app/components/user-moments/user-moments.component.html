@@ -1,0 +1,32 @@
+<div class="user-moments-container">
+  <h2>Moments</h2>
+
+  <!-- Left arrow for pagination (conditionally displayed) -->
+  <button
+    class="pagination-arrow left"
+    *ngIf="hasPreviousPage()"
+    (click)="previousPage()"
+  >
+    <i class="bi bi-arrow-left-circle-fill"></i>
+  </button>
+
+  <div class="user-moments">
+    <!-- Loop through user moments -->
+    <div class="moment" *ngFor="let moment of getDisplayedMoments()">
+      <img
+        [src]="moment.image"
+        alt="Moment"
+        [class.border]="moment.showBorder"
+      />
+    </div>
+  </div>
+
+  <!-- Right arrow for pagination (conditionally displayed) -->
+  <button
+    class="pagination-arrow right"
+    *ngIf="hasNextPage()"
+    (click)="nextPage()"
+  >
+    <i class="bi bi-arrow-right-circle-fill"></i>
+  </button>
+</div>

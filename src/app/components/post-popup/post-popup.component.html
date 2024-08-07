@@ -1,0 +1,52 @@
+<div class="post-popup-overlay"></div>
+<div class="post-popup-container">
+  <div class="post-popup">
+    <div class="post-header">
+      <h3>Create a Post</h3>
+      <button class="close-button" (click)="closePostPopup()">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+
+    <div class="post-body">
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          placeholder="Share Your Testimonies..."
+          [(ngModel)]="postContent"
+          name="postContent"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+    <div class="post-footer">
+      <div class="d-flex align-items-center">
+        <div class="image-upload">
+          <label for="imageInput">
+            <i class="fi fi-sr-camera"></i>
+          </label>
+          <input
+            type="file"
+            id="imageInput"
+            (change)="onImageSelected($event)"
+            accept="image/*"
+          />
+        </div>
+        <div class="location-share">
+          <button class="location-button" (click)="shareLocation()">
+            <i class="fi fi-ss-marker"></i>
+          </button>
+        </div>
+        <div class="video-upload">
+          <label for="videoInput">
+            <i class="fi fi-rr-clapperboard-play"></i>
+          </label>
+          <input type="file" id="videoInput" accept="video/*" />
+        </div>
+      </div>
+      <div>
+        <button class="post-button" (click)="createPost()">Post</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+<!-- User Moments -->
+<div class="user-moments d-sm-flex d-md-flex d-lg-none justify-content-center">
+  <!-- app-user-moments component for mobile devices (this component is different from the
+    app-user-moments-lg component in the sidebar) -->
+  <user-moments></user-moments>
+</div>
+
+<div class="container home">
+  <div class="row">
+    <!-- User's Activities Feed Mobile -->
+    <div class="col-12 d-sm-block d-md-block d-lg-none">
+      <div class="card mb-4" *ngFor="let post of displayedPosts">
+        <div class="card-body">
+          <div class="post">
+            <div class="post-header">
+              <div class="d-flex">
+                <img [src]="post.img" alt="User Profile" />
+                <div class="post-info">
+                  <span class="post-user">{{ post.user }}</span>
+                  <div class="d-flex" style="align-items: center; column-gap: 2px">
+                    <span class="post-time-icon">
+                      <i class="bi bi-clock"></i>
+                    </span>
+                    <span class="post-time">{{ post.time }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="more-icon">
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-content-text">
+                {{ post.content.text }}
+              </p>
+              <div *ngIf="post.content.img">
+                <img [src]="post.content.img" alt="Post Image" />
+              </div>
+            </div>
+            <div class="post-action-comment-grid">
+              <div class="post-actions">
+                <div class="like-action-grid d-flex flex-column">
+                  <div class="like-row d-flex align-items-center">
+                    <button class="btn btn-like">
+                      <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                    <div class="post-action-count">{{ post.likes }}</div>
+                  </div>
+
+                  <div>
+                    <small class="text-muted fw-medium">
+                      Chima Okeke and {{ post.likes - 1 }} others liked this
+                      post
+                    </small>
+                  </div>
+                </div>
+
+                <div class="comment-column d-flex flex-column">
+                  <button class="btn btn-comment">
+                    <i class="bi bi-chat-right-fill"></i>
+                  </button>
+                  <div class="post-action-count">{{ post.commentCount }}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="comments">
+              <div class="comment" *ngFor="let comment of post.comments">
+                <img [src]="comment.userCommentImage" alt="Comment User Profile" />
+                <div class="comment-content">
+                  <span class="comment-user fw-semibold">{{
+                    comment.user
+                    }}</span>
+                  <span class="comment-text">{{ comment.commentContent }}</span>
+                </div>
+              </div>
+            </div>
+            <!-- Comment Input -->
+            <div class="comment-input">
+              <input type="text" class="form-control" placeholder="Write a comment..." />
+              <button class="btn btn-primary">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User's Activities Feed Laptop/Desktop -->
+    <div class="col-6 d-sm-none d-md-none d-lg-block laptop-desktop-home-container-1">
+      <div class="post-input-card">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="post-body">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Share Your Testimonies..." [(ngModel)]="postContent"
+                  name="postContent" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="post-footer">
+              <div class="d-flex align-items-center">
+                <div class="image-upload">
+                  <label for="imageInput">
+                    <i class="fi fi-sr-camera"></i>
+                  </label>
+                  <input type="file" id="imageInput" (change)="onImageSelected($event)" accept="image/*" />
+                </div>
+                <div class="location-share">
+                  <button class="location-button" (click)="shareLocation()">
+                    <i class="fi fi-ss-marker"></i>
+                  </button>
+                </div>
+                <div class="video-upload">
+                  <label for="videoInput">
+                    <i class="fi fi-rr-clapperboard-play"></i>
+                  </label>
+                  <input type="file" id="videoInput" accept="video/*" />
+                </div>
+              </div>
+              <div>
+                <button class="post-button" (click)="createPost()">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4" style="border-radius: 25px" *ngFor="let post of displayedPosts">
+        <div class="card-body">
+          <div class="post">
+            <div class="post-header">
+              <div class="d-flex">
+                <img [src]="post.img" alt="User Profile" />
+                <div class="post-info">
+                  <span class="post-user">{{ post.user }}</span>
+                  <div class="d-flex" style="align-items: center; column-gap: 2px">
+                    <span class="post-time-icon">
+                      <i class="bi bi-clock"></i>
+                    </span>
+                    <span class="post-time">{{ post.time }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="more-icon">
+                <i class="bi bi-three-dots-vertical"></i>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-content-text">
+                {{ post.content.text }}
+              </p>
+              <div class="post-content-img-lg" *ngIf="post.content.img">
+                <img [src]="post.content.img" alt="Post Image" />
+              </div>
+            </div>
+            <div class="post-action-comment-grid" style="border-bottom: 1px solid #545454; padding-bottom: 18px">
+              <div class="post-actions">
+                <div class="like-action-grid d-flex align-items-center" style="column-gap: 25px !important">
+                  <div class="comment-column comment-lg d-flex align-items-center">
+                    <button class="btn p-0 btn-comment">
+                      <i class="bi bi-chat-left"></i>
+                    </button>
+                    <div class="post-action-count post-action-count-lg">
+                      {{
+                      post.commentCount ? post.commentCount + " Comments" : ""
+                      }}
+                    </div>
+                  </div>
+
+                  <div class="like-row like-lg d-flex align-items-center">
+                    <button class="btn p-0 btn-like">
+                      <i class="bi bi-suit-heart-fill"></i>
+                    </button>
+                    <div class="post-action-count post-action-count-lg">
+                      {{ post.likes ? post.likes + " Likes" : "" }}
+                    </div>
+                  </div>
+
+                  <div class="share-column share-lg d-flex align-items-center">
+                    <button class="btn p-0 btn-share">
+                      <i class="bi bi-share"></i>
+                    </button>
+                    <div class="post-action-count post-action-count-lg">
+                      {{ post.shares ? post.shares + " Shares" : "" }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="comments">
+              <div class="comment" *ngFor="let comment of post.comments">
+                <img [src]="comment.userCommentImage" [alt]="comment.user" />
+                <div class="comment-content">
+                  <span class="comment-user fw-semibold">{{
+                    comment.user
+                    }}</span>
+                  <span class="comment-text">{{ comment.commentContent }}</span>
+                </div>
+              </div>
+            </div>
+            <!-- Comment Input -->
+            <div class="comment-input">
+              <input type="text" class="form-control" placeholder="Write a comment..." />
+              <button class="btn btn-primary">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 d-sm-none d-md-none d-lg-block laptop-desktop-home-container-2">
+      <div class="sidebar">
+        <!-- Sidebar component -->
+        <sidebar></sidebar>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <groups-featured></groups-featured>
+    </div>
+  </div>
+  <!-- Loading Indicator -->
+  <div *ngIf="loading" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status"></div>
+  </div>
+</div>

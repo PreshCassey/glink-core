@@ -1,0 +1,210 @@
+<div class="navbar-wrapper">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-light header__nav">
+    <!-- Mobile Navbar -->
+    <div class="logo-toggler-row d-flex justify-content-between align-items-center d-sm-flex d-md-flex d-lg-none">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" style="color: rgb(243, 239, 239); font-weight: bolder" [routerLink]="'/'">
+        <img src="../../../assets/images/glink-network-logo.png" loading="lazy" alt="Glink Network Logo" />
+      </a>
+
+      <div class="toggler-filter-search-row d-flex justify-content-between align-items-center">
+        <!-- Toggle button -->
+        <div class="toggle-btn">
+          <button class="navbar-toggler" type="button" (click)="isNavCollapsed = !isNavCollapsed"
+            [attr.aria-expanded]="!isNavCollapsed" aria-controls="collapseBasic">
+            <!-- <i class="bx bxs-grid"></i> -->
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+
+        <!-- Filter button -->
+        <div class="filter-btn icon" (click)="showFilterOptions()">
+          <!-- Filter Icon -->
+          <button>
+            <i class="fi fi-br-settings-sliders"></i>
+          </button>
+        </div>
+
+        <!-- Search button -->
+        <div class="search-btn icon" (click)="showSearchBar()">
+          <!-- Search Icon -->
+          <button>
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop/Desktop Navbar -->
+    <div class="d-sm-none d-md-none d-lg-flex w-100 laptop-desktop-nav-container">
+      <div class="laptop-desktop-navbar row">
+        <div class="col-2">
+          <!-- Navbar brand -->
+          <a class="navbar-brand" style="color: rgb(243, 239, 239); font-weight: bolder" [routerLink]="'/'">
+            <img src="../../../assets/images/glink-network-logo.png" loading="lazy" alt="Glink Network Logo" />
+          </a>
+        </div>
+
+        <div class="col-4">
+          <!-- Search bar -->
+          <div class="search-bar">
+            <search-bar (searchQueryChanged)="applySearch($event)"></search-bar>
+          </div>
+        </div>
+
+        <div class="col-1" style="display: flex; justify-content: center; padding-top: 12px">
+          <button class="home-icon" [class.active]="isCurrentPage('home')">
+            <i class="fi fi-sr-home"></i>
+          </button>
+        </div>
+
+        <div class="col-2">
+          <div class="d-flex align-items-center">
+            <div class="nav-elements">
+              <div class="notification-icon">
+                <a [routerLink]="'/notifications'">
+                  <button [class.active]="isCurrentPage('notifications')">
+                    <!-- <i class="bi bi-bell-fill"></i> -->
+                    <i class="fi fi-ss-bell"></i>
+                  </button>
+                </a>
+              </div>
+
+              <div class="groups-icon">
+                <a [routerLink]="'/groups'">
+                  <button [class.active]="isCurrentPage('groups')">
+                    <i class="fi fi-sr-users-alt"></i>
+                  </button>
+                </a>
+              </div>
+
+              <!-- Filter button -->
+              <div class="filter-btn icon" (click)="showFilterOptions()">
+                <!-- Filter Icon -->
+                <button>
+                  <i class="fi fi-br-settings-sliders"></i>
+                </button>
+              </div>
+            </div>
+            <div class="user-profile">
+              <div class="user-profile-img">
+                <a [routerLink]="'/profile'">
+                <img src="../../../assets/images/user-profile.png" alt="User Profile" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collapsible wrapper -->
+    <!-- Right elements -->
+    <div class="collapse navbar-collapse" id="collapseBasic" [collapse]="isNavCollapsed" [isAnimated]="true">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/'"><span class="span-container"
+              [class.active]="isCurrentPage('home')"><i class="bi bi-house-fill"></i> <span>Home</span></span></a>
+        </li>
+        <!-- <li class="nav-item" [class.active]="isCurrentPage('about')">
+          <a class="nav-link text-white" [routerLink]="/about"
+            ><span class="span-container"
+              ><i class="bi bi-file-person-fill"></i><span></span>About</span
+            ></a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/prayer-requests'" (click)="isNavCollapsed = true">
+            <span class="span-container" [class.active]="isCurrentPage('prayer-requests')">
+              <i class="bi bi-postage-heart-fill"></i>
+              <span>Prayer Requests</span>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/hymn-library'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('hymn-library')"><i
+                class="bi bi-collection-play-fill"></i><span>Hymn Library</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/events'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('events')"><i
+                class="fi fi-sr-calendar-star"></i><span>Events</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/groups'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('groups')">
+              <i class="fi fi-sr-users-alt"></i>
+              <span>Groups</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/bookmarks'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('bookmarks')"><i
+                class="fi fi-sr-bookmark"></i><span>Bookmarks</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/musics'" (click)="isNavCollapsed = true">
+            <span class="span-container" [class.active]="isCurrentPage('musics')"><i
+                class="fi fi-sr-list-music"></i><span>Musics</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/daily-devotionals'" (click)="isNavCollapsed = true">
+            <span class="span-container" [class.active]="isCurrentPage('daily-devotionals')"><i
+                class="bi bi-calendar2-check-fill"></i><span>Daily Devotionals</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/churches'" (click)="isNavCollapsed = true">
+            <span class="span-container" [class.active]="isCurrentPage('churches')"><i
+                class="bi bi-building-fill"></i><span>Churches</span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" (click)="toggleDarkMode()" style="font-size: 1.19rem">Dark Mode
+            <span class="ms-2"><i [class]="
+                  darkMode ? 'fi fi-sr-brightness' : 'fi fi-br-moon-stars'
+                "></i></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/volunteer'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('volunteer')">
+              <i class="bi bi-suit-heart-fill"></i>
+              <span>Volunteer</span></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="'/setting'" (click)="isNavCollapsed = true"><span
+              class="span-container" [class.active]="isCurrentPage('setting')">
+              <i class="bi bi-gear"></i> 
+              <span>Setting</span></span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" style="font-size: 1.19rem" (click)="handleCollapseAndLogout()"><span
+              class="mr-3"><i class="fi fi-br-exit"></i></span> Logout</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+  </nav>
+  <!-- Navbar -->
+</div>
+
+<!-- Filter Options Overlay -->
+<filter-bar *ngIf="showFilterOverlay" (filterChanged)="applyFilter($event)"></filter-bar>
+
+<!-- Search Bar Overlay -->
+<div class="search-bar-overlay" *ngIf="showSearchOverlay">
+  <button class="cancel-button" (click)="onCancelSearch()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <search-bar (searchQueryChanged)="applySearch($event)"></search-bar>
+</div>

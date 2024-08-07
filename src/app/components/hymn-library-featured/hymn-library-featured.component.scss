@@ -1,0 +1,43 @@
+@import '../../../scss/variables';
+
+.hymn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  overflow: hidden;
+  .hymn-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .hymn-image {
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        // object-fit: cover;
+        margin-right: 5px;
+      }
+    }
+
+    .hymn-details {
+      display: flex;
+      flex-direction: column;
+
+      .hymn-name {
+        font-weight: 800;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        text-transform: uppercase;
+        color: #0e2a47;
+      }
+
+      .hymn-number {
+        color: #a80000;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

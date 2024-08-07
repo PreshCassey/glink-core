@@ -1,0 +1,10 @@
+<div class="search-bar">
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    (keyup.enter)="emitSearchQuery()"
+    placeholder="Search..."
+  />
+  <button class="search-button" (click)="emitSearchQuery()">
+    <i class="bi bi-search"></i> </button>
+</div>

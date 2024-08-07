@@ -1,0 +1,73 @@
+// Import variables.scss here:
+@import "../../../scss/variables";
+
+.user-moments-container {
+  background-color: #f5f5f5;
+  position: relative; /* Required for absolute positioning of pagination arrows */
+  padding: 1rem;
+  overflow: hidden; /* Ensure moments don't overflow on mobile devices */
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-left: 10px;
+  }
+
+  .user-moments {
+    display: flex;
+    flex-wrap: nowrap; /* Keep all moments in a single line */
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    overflow-x: hidden; /* Hide horizontal overflow on mobile devices */
+    transition: transform 0.2s ease; /* Add smooth transition to transform property */
+
+    .moment {
+      /* Styles for each user moment card */
+      width: 100px;
+      text-align: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .border {
+        border: 2px solid $secondary-color !important;
+      }
+
+      .moment-caption {
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .pagination-arrow {
+    position: absolute;
+    top: 58%;
+    transform: translateY(-58%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 24px;
+    z-index: 999;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 0 5px;
+
+    i {
+      color: $primary-color;
+    }
+  }
+
+  .pagination-arrow.left {
+    left: 0;
+  }
+
+  .pagination-arrow.right {
+    right: 0;
+  }
+}

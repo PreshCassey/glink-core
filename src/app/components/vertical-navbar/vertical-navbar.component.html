@@ -1,0 +1,92 @@
+<div class="vertical-navbar" *ngIf="showVerticalNavbar">
+  <!-- User Profile Section -->
+  <div class="user-profile">
+    <a [routerLink]="'/profile'">
+      <img
+        class="profile-photo"
+        src="../../../assets/images/user-profile.png"
+        alt="User Profile Photo"/>
+    </a>
+    <div class="profile-info">
+      <span class="full-name">Chika Obi</span>
+      <span class="username">@NaijaSoulSearcher</span>
+    </div>
+  </div>
+
+  <!-- Navigation Items -->
+  <ul class="nav-items">
+    <li [class.active]="isCurrentPage('home')">
+      <a [routerLink]="'/'">
+        <!-- <i class="bi bi-grid"></i> -->
+        <i class="fi fi-rr-apps"></i>
+        <span>Feed</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('prayer-requests')">
+      <a [routerLink]="'/prayer-requests'"
+        ><i class="bi bi-postage-heart-fill"></i><span>Prayer Requests</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('hymn-library')">
+      <a [routerLink]="'/hymn-library'"
+        ><i class="bi bi-collection-play"></i><span>Hymn Library</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('events')">
+      <a [routerLink]="'/events'">
+        <i class="fi fi-rr-calendar-star"></i>
+        <span>Events</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('groups')">
+      <a [routerLink]="'/groups'">
+        <!-- <i class="bi bi-people"></i> -->
+        <i class="fi fi-br-users-alt"></i>
+        <span> Groups</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('bookmarks')">
+      <a [routerLink]="'/bookmarks'"
+        ><i class="fi fi-br-bookmark"></i><span>Bookmarks</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('musics')">
+      <a [routerLink]="'/musics'"
+        ><i class="fi fi-br-list-music"></i><span>Musics</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('daily-devotionals')">
+      <a [routerLink]="'/daily-devotionals'"
+        ><i class="bi bi-calendar2-check"></i><span>Daily Devotionals</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('churches')">
+      <a [routerLink]="'/churches'"
+        ><i class="bi bi-building"></i><span>Churches</span></a
+      >
+    </li>
+    <li>
+      <a style="padding-left: 0.5rem" (click)="toggleDarkMode()"
+        ><span>DarkMode</span
+        ><i
+          [class]="darkMode ? 'fi fi-br-brightness' : 'fi fi-bs-moon-stars'"
+        ></i
+      ></a>
+    </li>
+    <li [class.active]="isCurrentPage('volunteer')">
+      <a [routerLink]="'/volunteer'"
+        ><i class="bi bi-suit-heart"></i><span>Volunteer</span></a
+      >
+    </li>
+    <li [class.active]="isCurrentPage('setting')">
+      <a [routerLink]="'/setting'"
+        ><i class="bi bi-gear"></i><span>Setting</span></a
+      >
+    </li>
+    <li (click)="logout()">
+      <a
+        ><span><i class="fi fi-rr-exit"></i></span>Logout</a
+      >
+    </li>
+  </ul>
+</div>

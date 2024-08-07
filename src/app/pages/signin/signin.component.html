@@ -1,0 +1,145 @@
+<div class="container signinContainer overflow-hidden">
+  <div class="logo">
+    <img
+      src="assets/images/glink-network-logo.png"
+      class="img-fluid"
+      height="100"
+      width="100"
+      alt="logo"
+      style="width: 100px; height: 100px"
+    />
+  </div>
+
+  <ng-container *ngIf="signinMessage.length > 0">
+    <div class="alert alert-danger alert-dismissible text-center">
+      {{ signinMessage }}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="signinMessage == 'login successfully'">
+    <div class="alert alert-success alert-dismissible text-center">
+      {{ signinMessage }}
+    </div>
+  </ng-container>
+
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div>
+        <h2 class="my-4 text-center fw-bolder">Welcome Back</h2>
+      </div>
+      <section class="forms">
+        <form (ngSubmit)="signin()" [formGroup]="loginForm" novalidate>
+          <div class="forms__inputBox">
+             <i class="bi bi-envelope"></i>
+            <input
+              type="email"
+              formControlName="email"
+              id="email"
+              data-cy="signin-email"
+              autocomplete="off"
+              required
+            />
+            <label for="email">Email</label>
+
+            <div class="signinForms--error">
+              <ng-container
+                *ngIf="
+                  loginForm.get('email')?.hasError('required') &&
+                  loginForm.get('email')?.touched
+                "
+              >
+                <div id="emailError" aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span>Email Required</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="loginForm.get('email')?.hasError('pattern')">
+                <div id="emailError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Please enter a valid email</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <i class="bi bi-lock"></i>
+            <input
+              type="password"
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              id="password"
+              data-cy="signin-password"
+              autocomplete="off"
+              required
+            />
+            <i
+              [class]="hide ? 'bi bi-eye-slash' : 'bi bi-eye'"
+              (click)="hide = !hide"
+            ></i>
+            <label for="password">Password</label>
+
+            <div class="signinForms--error">
+              <ng-container
+                *ngIf="
+                  loginForm.get('password')?.touched &&
+                  loginForm.get('password')?.hasError('required')
+                "
+              >
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  <span>Password Required</span>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="loginForm.get('password')?.hasError('minlength')"
+              >
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Password must be at least 6 characters</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div
+            class="d-flex justify-content-between align-items-center my-1 w-100"
+          >
+            <div class="rememberMe">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                formControlName="rememberMe"
+                data-cy="signin-rememberMe"
+              />
+              <label for="rememberMe">Remember Me</label>
+            </div>
+            <div class="forgotPassw w-100 d-flex justify-content-end">
+              <p>
+                <a [routerLink]="'/forget_pwd'">Forgot Password? </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="signinBtn">
+            <button data-cy="signin-button" [routerLink]="'/signup'">Sign In</button>
+          </div>
+        </form>
+
+        <div class="alternative-signIn">
+          <div class="signin-signup">
+            <p>Do not have an account?</p>
+            <span>
+              <a routerLink="/signup">Sign Up here</a>
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="col col-lg-6 d-none d-lg-flex">
+      <div class="signin-bg"></div>
+    </div>
+  </div>
+</div>

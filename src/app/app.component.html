@@ -1,0 +1,29 @@
+<div [ngClass]="{ 'dark-mode': navbar.darkMode }">
+  <div class="root">
+    <mobile-navbar></mobile-navbar>
+    <ng-container>
+      <navbar #navbar style="z-index: 1000"></navbar>
+    </ng-container>
+
+    <div class="content">
+      <ng-container>
+        <div class="vertical-navbar-container">
+          <vertical-navbar></vertical-navbar>
+          </div>
+          </ng-container>
+
+      <div class="main-content">
+        <router-outlet></router-outlet>
+        </div>
+        </div>
+
+    <ng-container>
+      <bottom-nav class="d-sm-block d-md-block d-lg-none"></bottom-nav>
+      <footer style="z-index: 1000"></footer>
+    </ng-container>
+    <ng-container>
+      <div class="main-content">
+</div>
+</ng-container>
+</div>
+</div>

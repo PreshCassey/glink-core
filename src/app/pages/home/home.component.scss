@@ -1,0 +1,255 @@
+// Import variables.scss file
+@import "../../../scss/variables.scss";
+
+/* Custom Home Feed Styles */
+.home {
+  .card {
+    border-radius: 25px !important;
+  }
+  // Post Input Styles
+  .post-input-card {
+    .post-body {
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      textarea.form-control {
+        resize: none;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #333;
+        font-weight: 600;
+
+        &:focus {
+          outline: none;
+          border-color: $secondary-color;
+        }
+      }
+    }
+
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .image-upload,
+      .video-upload {
+        display: flex;
+        align-items: center;
+
+        label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          color: $secondary-color;
+          font-size: 14px;
+          margin-right: 10px;
+
+          i {
+            font-size: 20px;
+            background: #dfdfdf;
+            border-radius: 50%;
+            width: 33px;
+            height: 33px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+      }
+
+      .location-share {
+        text-align: center;
+
+        .location-button {
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
+          color: $secondary-color;
+          font-size: 14px;
+          padding-left: 0;
+          display: flex;
+          align-items: center;
+
+          &:focus {
+            outline: none;
+          }
+
+          i {
+            font-size: 20px;
+            margin-right: 5px;
+            background: #dfdfdf;
+            border-radius: 50%;
+            width: 33px;
+            height: 33px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+        }
+      }
+
+      .post-button {
+        padding: 8px 20px;
+        border: none;
+        background-color: $primary-color;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .post {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 7px;
+    }
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .post-info {
+        display: flex;
+        flex-direction: column;
+
+        .post-time-icon {
+          i {
+            font-size: 0.9rem;
+            color: #888;
+          }
+        }
+        .post {
+          color: $text-color;
+        }
+      }
+
+      .more-icon {
+        i {
+          font-size: 1.5rem;
+          color: $secondary-color;
+
+          @media screen and (min-width: 992px) {
+            font-size: 2.3rem;
+          }
+        }
+      }
+    }
+    .post-user {
+      font-weight: 800;
+      color: $text-color;
+    }
+    .post-time {
+      color: #888;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .post-content {
+      margin-top: 10px;
+
+      .post-content-text {
+        font-size: 1.38rem;
+        text-align: left;
+      }
+
+      .post-content-img-lg {
+        border-bottom: 1px solid #545454;
+        padding-bottom: 15px;
+      }
+
+      img {
+        border-radius: 15px;
+        width: 100%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        height: fit-content;
+      }
+    }
+    .post-actions {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+
+      .like-action-grid {
+        .like-row {
+          button {
+            padding: 4px 4px 4px 0;
+            i {
+              color: #c2000b;
+            }
+          }
+        }
+
+        .post-action-count-lg {
+          color: #545454;
+        }
+
+        .comment-lg,
+        .share-lg, .like-lg {
+          color: #c4c4c4;
+          font-size: 1rem;
+          column-gap: 5px !important;
+
+          i {
+            font-size: 1.3rem;
+          }
+        }
+      }
+
+      .comment-column {
+        button {
+          i {
+            color: #888;
+          }
+        }
+      }
+    }
+    .comments {
+      margin-top: 10px;
+      .comment {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 8px;
+        }
+        .comment-text {
+          margin-left: 5px;
+        }
+      }
+    }
+    .comment-input {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      input {
+        flex: 1;
+        margin-right: 10px;
+      }
+      button {
+        width: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@import "../../../scss/variables";
+
+/* Sidebar Styles */
+.sidebar {
+  .card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 25px !important;
+    .card-header {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .see-all-btn {
+      margin-top: 10px;
+      button {
+        background-color: #f5f5f5;
+        width: -webkit-fill-available;
+        border: none !important;
+        padding: 0.8rem 1rem !important;
+        &:hover {
+          background-color: $secondary-color !important;
+          color: $text-color !important;
+        }
+        a {
+          color: $secondary-color !important;
+          font-weight: bold;
+          text-decoration: none;
+          text-transform: uppercase;
+          &:hover {
+            color: $text-color !important;
+          }
+        }
+      }
+    }
+  }
+  .right-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0px !important;
+    width: 100%;
+    min-height: 100vh !important;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    padding: 20px;
+
+    .heading {
+      font-size: 1rem;
+      // margin-bottom: 10px;
+      margin-bottom: 0;
+      font-weight: 700;
+      color: #545454;
+      text-transform: uppercase;
+    }
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+
+      
+    }
+
+    .see-all-btn {
+        margin-top: 10px;
+      button {
+        background-color: #f5f5f5;
+        width: -webkit-fill-available;
+        border: none !important;
+        padding: 0.8rem 1rem !important;
+        &:hover {
+          background-color: $secondary-color !important;
+          color: $text-color !important;
+        }
+        a {
+          color: $secondary-color !important;
+          font-weight: bold;
+          text-decoration: none;
+          text-transform: uppercase;
+          &:hover {
+            color: $text-color !important;
+          }
+        }
+      }
+      }
+  }
+}

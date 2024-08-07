@@ -1,0 +1,27 @@
+<ul class="nav justify-content-center bottom-navigation">
+  <li class="nav-item" (click)="selectNavItem('home')" [class.active]="selectedNavItem === 'home'">
+    <a class="nav-link" [routerLink]="'/'">
+      <i class="fi fi-sr-home"></i>
+      Home</a>
+  </li>
+  <li class="nav-item" (click)="selectNavItem('groups')" [class.active]="selectedNavItem === 'groups'">
+    <a class="nav-link" [routerLink]="'/groups'">
+      <i class="fi fi-sr-users-alt"></i>
+      Groups</a>
+  </li>
+  <li class="nav-item" (click)="openPostPopup()" style="position: relative; bottom: 2rem; margin-right: 5px">
+    <a class="nav-link plus-icon"><i class="bi bi-plus-circle"></i></a>
+  </li>
+
+  <li class="nav-item" (click)="selectNavItem('notifications')" [class.active]="selectedNavItem === 'notifications'">
+    <a class="nav-link" [routerLink]="'/notifications'">
+      <!-- <i class="bi bi-bell-fill"></i>  -->
+      <i class="fi fi-ss-bell"></i>
+      Notifications</a>
+  </li>
+  <li class="nav-item" (click)="selectNavItem('profile')" [class.active]="selectedNavItem === 'profile'">
+    <a class="nav-link" [routerLink]="'/profile'"><i class="fi fi-sr-user-pen"></i> Profile</a>
+  </li>
+</ul>
+
+<post-popup *ngIf="showPostPopup" (onClose)="closePostPopup()" (onVideoAdded)="handleVideoAdded($event)"></post-popup>

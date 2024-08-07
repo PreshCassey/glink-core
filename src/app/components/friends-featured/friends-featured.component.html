@@ -1,0 +1,11 @@
+<div class="friend-list">
+    <div class="friend-item" *ngFor="let friend of featuredFriends">
+      <div class="friend-image">
+        <img [src]="friend.friendImage" alt="{{ friend.friendName }}">
+      </div>
+      <div class="friend-details">
+        <p class="friend-name">{{ friend.friendName }}</p>
+        <small class="friend-location">{{friend.friendLocation}}</small>
+      </div>
+    </div>
+  </div>

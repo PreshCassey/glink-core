@@ -1,0 +1,19 @@
+<div class="group-list">
+  <div class="group-item" *ngFor="let group of featuredGroups">
+    <div class="group-image">
+      <img [src]="group.groupImage" alt="{{ group.groupName }}" />
+    </div>
+    <div class="group-details">
+      <p class="group-name">{{ group.groupName }}</p>
+      <button
+        class="btn btn-primary btn-sm"
+        [ngClass]="{
+          'unjoin-button': group.ifUserJoined,
+          'join-button': !group.ifUserJoined
+        }"
+      >
+        {{ group.ifUserJoined ? "Unjoin" : "Join" }}
+      </button>
+    </div>
+  </div>
+</div>

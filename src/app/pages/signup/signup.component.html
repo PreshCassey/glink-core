@@ -1,0 +1,318 @@
+<div class="container overflow-hidden signup">
+  <div class="logo">
+    <img src="../../../assets/images/glink-network-logo.png" class="img-fluid" height="100" width="100" alt="logo"
+      style="height: 100px; width: 100px" />
+  </div>
+
+  <ng-container *ngIf="errorMessage">
+    <div class="alert alert-danger alert-dismissible text-center">
+      {{ registrationMsg }}
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="successMessage">
+    <div class="alert alert-success alert-dismissible text-center">
+      {{ successMsg }}
+    </div>
+  </ng-container>
+
+  <h2 class="my-3 text-center fw-bolder">Create an Account</h2>
+
+  <div class="alternative-signUp">
+    <div class="signup-signin">
+      <p>Already Registered?</p>
+      <span>
+        <a [routerLink]="'/signin'">Sign In</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <section class="forms">
+        <form class="signupForm" (ngSubmit)="signupUser()" [formGroup]="signupForm" novalidate>
+          <div class="forms__inputBox">
+            <input type="text" formControlName="firstName" name="firstName" id="firstName"
+              aria-describedby="firstNameError" required />
+            <label for="firstName">First Name</label>
+
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('firstName')?.touched &&
+                  signupForm.get('firstName')?.hasError('minlength')
+                ">
+                <div id="firstNameError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span> First Name must be at least 3 characters </span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('firstName')?.hasError('required') &&
+                  signupForm.get('firstName')?.touched
+                ">
+                <div id="firstNameError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  <span>First Name Required</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <input type="text" formControlName="lastName" name="lastName" id="lastName" aria-describedby="lastNameError"
+              required />
+            <label for="lastName">Last Name</label>
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('lastName')?.touched &&
+                  signupForm.get('lastName')?.hasError('minlength')
+                ">
+                <div id="lastNameError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Last Name must be at least 3 characters</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('lastName')?.hasError('required') &&
+                  signupForm.get('lastName')?.touched
+                ">
+                <div id="lastNameError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  <span>Last Name Required</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('lastName')?.hasError('') &&
+                  (signupForm.get('lastName')?.dirty ||
+                    signupForm.get('lastName')?.touched)
+                ">
+                <div id="firstNameError" aria-live="assertive" *ngIf="signupForm.get('lastName')?.hasError('pattern')">
+                  <i class="bi bi-x"> </i>
+                  <span>Please enter only alphabets</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <input type="email" formControlName="email" name="email" id="email" aria-describedby="emailError"
+              required />
+            <label for="email">Email</label>
+
+            <div class="signupForms--error">
+              <ng-container class="alert alert-danger" *ngIf="
+                  signupForm.get('email')?.hasError('taken') &&
+                  signupForm.get('email')?.touched
+                ">
+                <div id="emailError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span> Email Already Taken </span>
+                </div>
+              </ng-container>
+              <ng-container class="alert alert-danger" *ngIf="
+                  signupForm.get('email')?.pending &&
+                  signupForm.get('email')?.touched
+                ">
+                <div class="text-info align-middle mt-2" aria-live="assertive">
+                  <i class="bi bi-hourglass"> </i>
+                  <span>Checking Email ....</span>
+                </div>
+              </ng-container>
+              <ng-container class="alert alert-danger" *ngIf="signupForm.get('email')?.hasError('pattern')">
+                <div id="emailError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Please enter a valid email</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('email')?.hasError('required') &&
+                  signupForm.get('email')?.touched
+                " class="alert alert-danger">
+                <div id="emailError" aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span>Email Required</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+
+          <div class="forms__inputBox">
+            <input class="settingsBasicInfo__form__input settingsBasicInfo__form__inputDB" type="date"
+              name="dateOfBirth" formControlName="dateOfBirth" id="dateOfBirth" required />
+            <label class="settingsBasicInfo__form__label settingsBasicInfo__form__labelDB" for="dateOfBirth">Date of
+              Birth</label>
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('dateOfBirth')?.hasError('required') &&
+                  signupForm.get('dateOfBirth')?.touched
+                " class="alert alert-danger">
+                <div id="dateOfBirthError" aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span> Date of Birth Required </span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('dateOfBirth')?.hasError('invalidDate') &&
+                  signupForm.get('dateOfBirth')?.touched
+                " class="alert alert-danger">
+                <div id="dateOfBirthError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span> Date of Birth must be between 18 and 100 years</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <input type="text" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber"
+              aria-describedby="phoneNumberError" required />
+            <label for="phoneNumber">Phone Number</label>
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('phoneNumber')?.hasError('required') &&
+                  signupForm.get('phoneNumber')?.touched
+                ">
+                <div id="phoneNumberError" aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span>Phone Number Required</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="signupForm.get('phoneNumber')?.hasError('minlength')">
+                <div id="phoneNumberError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Phone number must be at least 11 characters</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  signupForm.get('phoneNumber')?.hasError('') &&
+                  (signupForm.get('phoneNumber')?.dirty ||
+                    signupForm.get('phoneNumber')?.touched)
+                ">
+                <div id="phoneNumberError" *ngIf="signupForm.get('phoneNumber')?.hasError('pattern')"
+                  aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span>Please enter a valid phone number (e.g. 0903456...)</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div class="forms__inputBox--gender">
+            <div class="gender-form">
+              <label for="gender">Gender</label>
+              <div class="gender-radio">
+                <label for="male">
+                  <input type="radio" formControlName="gender" id="male" value="male" required />
+                  Male
+                </label>
+                <label for="female">
+                  <input type="radio" formControlName="gender" id="female" value="female" required />
+                  Female
+                </label>
+                <label for="other">
+                  <input type="radio" formControlName="gender" id="other" value="other" required />
+                  Other
+                </label>
+              </div>
+            </div>
+
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('gender')?.hasError('required') &&
+                  signupForm.get('gender')?.touched
+                ">
+                <div id="genderError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  <span>Gender is required</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <input type="password" [type]="passwordHide ? 'password' : 'text'" formControlName="password"
+              name="password" id="password" aria-describedby="passwordError" required />
+            <i [class]="passwordHide ? 'bi bi-eye-slash' : 'bi bi-eye'" (click)="passwordHide = !passwordHide"></i>
+            <label for="password">Password</label>
+
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('password')?.hasError('required') &&
+                  signupForm.get('password')?.touched
+                ">
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  <span> Password Required </span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="signupForm.get('password')?.hasError('minlength')">
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Password must be at least 6 characters</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="forms__inputBox">
+            <input type="password" [type]="confirmPasswordHide ? 'password' : 'text'" formControlName="confirmPassword"
+              name="confirmPassword" id="confirmPassword" aria-describedby="confirmPasswordError" required />
+            <i [class]="confirmPasswordHide ? 'bi bi-eye-slash' : 'bi bi-eye'"
+              (click)="confirmPasswordHide = !confirmPasswordHide"></i>
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="signupForms--error">
+              <ng-container *ngIf="
+                  signupForm.get('confirmPassword')?.hasError('required') &&
+                  signupForm.get('confirmPassword')?.touched
+                ">
+                <span id="passwordError" aria-live="assertive">
+                  <i class="bi bi-x"></i>
+                  Password Required
+                </span>
+              </ng-container>
+
+              <ng-container *ngIf="
+                  !comparePassword && signupForm.get('confirmPassword')?.touched
+                ">
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-x"> </i>
+                  <span>Passwords don't match</span>
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="signupForm.get('confirmPassword')?.hasError('minlength')">
+                <div id="passwordError" aria-live="assertive">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  <span>Password must be at least 6 characters</span>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div class="signupBtn">
+            <button [disabled]="signupForm.invalid && signupForm.touched" type="submit" class="py-3">
+              Sign Up
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="col col-lg-6 d-none d-lg-flex">
+      <div class="signup-bg">
+        <img class="img-fluid" src="../../../assets/images/signup-bg.png" alt="Sign up" />
+      </div>
+    </div>
+
+
+  </div>
+</div>

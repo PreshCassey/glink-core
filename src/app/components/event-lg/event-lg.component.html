@@ -1,0 +1,19 @@
+<div class="event-card">
+  <div style="padding-top: 13px">
+    <h3 class="event-heading">Events</h3>
+  </div>
+  <hr class="divider" />
+
+  <div class="event-list">
+    <div class="event-item" *ngFor="let event of featuredEvents">
+      <div class="event-image">
+        <img [src]="event.eventImage" alt="{{ event.eventName }}" />
+      </div>
+      <div class="event-details">
+        <p class="event-name">{{ event.eventName }}</p>
+         <small class="event-location-date">{{ event.location }}</small>
+        <small class="event-location-date">{{ event.eventTime }}</small>
+      </div>
+    </div>
+  </div>
+</div>

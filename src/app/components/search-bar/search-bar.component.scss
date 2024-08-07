@@ -1,0 +1,49 @@
+// Import variables.scss into search-bar.component.scss:
+@import "../../../scss/variables";
+
+.search-bar {
+  position: relative;
+
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 3px;
+    color: $text-color; /* Set the text color */
+
+    @media screen and (min-width: 991px) {
+      background-color: #f6f6f6;
+      color: #c4c4c4;
+      font-weight: 700;
+    border-radius: 20px;
+    }
+  }
+
+  .search-button {
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+    background-color: $secondary-color;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+
+    @media screen and (min-width: 991px) {
+      background-color: transparent;
+      color: #1a1a1a;
+      font-size: 1.5rem;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    
+      
+    }
+  }
+}

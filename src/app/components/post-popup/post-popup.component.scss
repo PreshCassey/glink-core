@@ -1,0 +1,162 @@
+@import "../../../scss/variables";
+
+/* Custom styles for the post popup */
+.post-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1002; /* Set a high z-index to overlay on top of the footer and bottom navigation */
+}
+
+.post-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  z-index: 1003; /* Set a higher z-index to display the popup above the overlay and footer */
+}
+
+.post-popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+
+  .close-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #888;
+    font-size: 24px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.post-body {
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  textarea.form-control {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+
+    &:focus {
+      outline: none;
+      border-color: $secondary-color;
+    }
+  }
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  .image-upload,
+  .video-upload {
+    display: flex;
+    align-items: center;
+
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: $secondary-color;
+      font-size: 14px;
+      margin-right: 10px;
+
+      i {
+        font-size: 20px;
+        background: #dfdfdf;
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  .location-share {
+    text-align: center;
+
+    .location-button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      color: $secondary-color;
+      font-size: 14px;
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+
+      &:focus {
+        outline: none;
+      }
+
+      
+      i {
+        font-size: 20px;
+        margin-right: 5px;
+        background: #dfdfdf;
+        border-radius: 50%;
+        width: 33px;
+        height: 33px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  .post-button {
+    padding: 8px 20px;
+    border: none;
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
