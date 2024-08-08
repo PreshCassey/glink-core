@@ -1,1 +1,92 @@
-<p>daily-devotionals works!</p>
+<div class="container text-dark">
+    <h2>Daily Devotional</h2>
+
+    <div class="row">
+        <div class="col-md-9">
+            <form class="mb-4">
+                <div class="form-group">
+                      <div class="input-group">
+                          <select id="category" class="form-control">
+                          <option selected disabled>Select Category</option>
+                          <option>Faith</option>
+                          <option>Hope</option>
+                          <option>Love</option>
+                          <option>Strength</option>
+                          </select>
+                        <div class="input-group-append">
+                          <span class="input-group-text">
+                              <button type="submit" class="btn btn-primary">Get Devotion</button>
+                          </span>
+                        </div>
+                      </div>
+                  </div>
+              </form>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary btn-lg ms-3" data-bs-toggle="modal" data-bs-target="#modelId">
+                Post Devotion
+              </button>
+        </div>
+    </div>
+
+
+    
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Today's Devotion</h4>
+        <div id="devotionsList">
+
+            <div class="alert alert-info" role="alert">
+                <strong>Prayer:</strong> Lord, guide us today in your wisdom and love.
+                <button class="btn btn-outline-primary">Mark as Read</button>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+                <strong class="card-text">[Daily Devotional Content Here] </strong>
+                <button class="btn btn-outline-primary">Mark as Read</button>
+            </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-dark">Post a New Devotion</h5>
+            </div>
+            <div class="modal-body">
+                <div class="card m-4">
+                    <div class="card-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="devotionCategory">Category</label>
+                          <select class="form-control" id="devotionCategory">
+                            <option>Prayer</option>
+                            <option>Worship</option>
+                            <option>Thanksgiving</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="devotionText">Devotion</label>
+                          <textarea class="form-control" id="devotionText" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Post Devotion</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Post</button>
+            </div>
+        </div>
+    </div>
+  </div>

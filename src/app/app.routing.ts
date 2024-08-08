@@ -40,6 +40,8 @@ export const APP_ROUTES: Routes = [
   { path: 'friends', component: FriendsComponent },
    { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
+  {path: '', redirectTo:'/signin', pathMatch:'full' },
+  {path: '', redirectTo:'/signup', pathMatch:'full' },
   {path:'forget_pwd', component: ForgetPwdComponent},
   {path:'reset_pwd', component: ResetPwdComponent},
   { path: '**', redirectTo: 'home' } // Redirect to home if route doesn't match

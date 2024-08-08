@@ -83,10 +83,26 @@
         ><i class="bi bi-gear"></i><span>Setting</span></a
       >
     </li>
-    <li (click)="logout()">
-      <a
-        ><span><i class="fi fi-rr-exit"></i></span>Logout</a
-      >
+    <li>
+      <a data-bs-toggle="modal" data-bs-target="#modelId"><span><i class="fi fi-rr-exit"></i></span>Logout</a>
     </li>
   </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body text-dark fw-bold">
+        Are you sure you want to logout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,1 +1,39 @@
-<p>hymn-library works!</p>
+<div class="container">
+    <h1 class="mb-4 text-dark">Hymn Library</h1>
+  
+    <!-- Upload Form -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Upload a New Hymn</h5>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="hymnTitle" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control-file my-2" id="hymnFile">
+          </div>
+          <button type="submit" class="btn btn-primary">Upload Hymn</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Hymns List -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Hymns</h5>
+        <div class="form-group w-100">
+              <input class="form-control filled-input bg-white mb-3" placeholder="Enter Hymn title or keyword" type="search" />
+          </div>
+        <div id="hymnList">
+          <!-- Hymns will be listed here -->
+          <div class="alert alert-secondary" role="alert">
+            <strong>Amazing Grace</strong>
+            <button class="btn btn-outline-success btn-sm ms-2">Add to Favorite</button>
+            <button class="btn btn-outline-info btn-sm ms-2">Listen</button>
+            <button class="btn btn-outline-secondary rounded-circle ms-2"><i class="bi bi-download" aria-hidden="true"></i></button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
